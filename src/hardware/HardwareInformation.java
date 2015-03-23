@@ -106,7 +106,7 @@ public class HardwareInformation {
 	/**
 	 * Getting hardware information for windows OS
 	 * 
-	 * @return The below as one string (as is - xx||yy|zz...)
+	 * @return The below as one string (as is - xx||yy||zz...)
 	 *  Motherboard Manufacturer ||
 	 *  Motherboard Serial Number ||
 	 *  Bios Name ||
@@ -149,7 +149,17 @@ public class HardwareInformation {
 	/**
 	 * Getting hardware information for Unix
 	 * 
-	 * @return data taken using 'lspci' - The below as one string (as is - xx||yy|zz...)
+	 * @return data taken using 'lspci' - The below as one string (as is - xx||yy||zz...)
+	 *  Host bridge||
+	 *  ISA bridge||
+	 *  IDE Interface||
+	 *  VGA compatible controller||
+	 *  Ethernet controller||
+	 *  System peripheral||
+	 *  Multimedia audio controller||
+	 *  USB controller||
+	 *  Bridge||
+	 *  SATA conroller||
 	 */
 	private String getUnixInfo() {
 		String hardwareId = "";
@@ -182,7 +192,7 @@ public class HardwareInformation {
 	/**
 	 * Getting hardware information for Mac 
 	 * 
-	 * @return data taken using 'SPHardwareDataType' in system_profiler - The below as one string (as is - xx||yy|zz...)
+	 * @return data taken using 'SPHardwareDataType' in system_profiler - The below as one string (as is - xx||yy||zz...)
 	 *  Hardware: xx||
 	 *  Hardware Overview: xx||
 	 *  Model Name: xx||
