@@ -123,13 +123,18 @@ public class HardwareInformation {
 	 */
 	public static String getWinInfo() {
 		String hardwareId = "";
-		//This bat file is required to get information from Windows OS
+		//This bat file is required to get information from Windows OS - assuming the bat file is in 
+		//YOUR_CLASS_ROOT_PATH / Resources /...
 		URL url = HardwareInformation.class.getClassLoader().getResource(
 				"Resources/getHardwareInformation.bat");
+		//bat file is on the same directory as the jar file
+		//String batFile = System.getProperty("user.dir")+"\\getHardwareInformation.bat";
 		try {
 			Runtime runtime = Runtime.getRuntime();
 			Process proc = runtime.exec("powershell.exe  \""
 					+ url.getPath().toString().substring(1) + "\"  ");
+			//If using the batFile variable above, use the below statement. Else it won't work.
+			//Process proc = runtime.exec("cmd.exe /c \"" + Paths.get(batFile)+"\"");
 			InputStream is = proc.getInputStream();
 			InputStreamReader isr = new InputStreamReader(is);
 			BufferedReader reader = new BufferedReader(isr);
